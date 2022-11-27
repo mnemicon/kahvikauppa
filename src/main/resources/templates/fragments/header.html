@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>Kahvikauppa</title>
+    </head>
+    <body>
+        <div>
+            <header class="topnav" th:fragment="header">
+                <a th:href="@{/index}">Kahvikauppa etusivu</a>
+                <a th:href="@{/tuotteet}">Tuotteet</a>
+                <a th:href="@{/osastot}">Osastot</a>
+            </header>
+        </div>
+    </body>
+</html>

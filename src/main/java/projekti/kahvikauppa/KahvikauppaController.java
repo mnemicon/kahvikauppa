@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class KahvikauppaController {
     
-    @GetMapping("*")
+    @GetMapping("/kahvikauppa")
     @ResponseBody
     public String home() {
         return "Tänne tulee kahvikauppa!";
