@@ -1,5 +1,7 @@
 package projekti.kahvikauppa;
 
-public class TuoteRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TuoteRepository extends JpaRepository<Tuote, Long> {
     
 }
