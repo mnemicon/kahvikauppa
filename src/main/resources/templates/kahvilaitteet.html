@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>Kahvilaitteet</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+        <h2>Täältä löydät kahvilaitteet</h2>
+        <ul>
+            <li th:each="tuote : ${tuotteet}">
+                <span th:text="${tuote.nimi}">Tuotteen nimi</span>
+            </li>
+        </ul>        
+    </body>
+</html>
