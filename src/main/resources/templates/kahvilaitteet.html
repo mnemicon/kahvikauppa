@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
         <title>Kahvilaitteet</title>
     </head>
     <body>
@@ -11,6 +11,14 @@
             <li th:each="tuote : ${tuotteet}">
                 <span th:text="${tuote.nimi}">Tuotteen nimi</span>
             </li>
-        </ul>        
+        </ul>
+        <h2>Lisää uusi tuote kantaan:</h2>
+        <form action="/kahvilaitteet" method="POST">
+            Nimi: <input type="text" name="nimi" id="nimi">
+            Kuvaus: <input type="text" name="kuvaus" id="kuvaus">
+            Hinta: <input type="text" name="hinta" id="hinta">
+            Kuva: <input type="file" name="kuva" id="kuva">
+            <input type="submit" value="Lisää tuote">
+        </form>      
     </body>
 </html>
