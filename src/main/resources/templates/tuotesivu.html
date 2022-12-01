@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title th:text="${tuote.nimi}">tuotteen nimi</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+        <p>Tuotteen tiedot: 
+                <span th:text="${tuote.nimi}">nimi</span><br>
+                <!-- <span th:text="${tuote.kuvaus}">kuvaus</span><br>
+                <span th:text="${tuote.hinta">hinta</span><br>
+                <span th:file="${tuote.kuva">kuva</span><br> -->
+                <!-- <span th:text="${tuote.osasto">osasto</span><br>
+                <span th:text="${tuote.toimittaja">toimittaja</span><br>
+                <span th:text="${tuote.valmistaja">valmistaja</span> -->
+        </p>       
+    </body>
+</html>

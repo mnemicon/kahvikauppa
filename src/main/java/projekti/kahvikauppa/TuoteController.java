@@ -15,14 +15,17 @@ public class TuoteController {
 
     @Autowired
     private TuoteService tuoteService;
-    @Autowired
-    private OsastoService osastoService;
 
-    // @GetMapping("/kahvilaitteet")
-    // public String showProducts(Model model) {
-    //     model.addAttribute("tuotteet", tuoteService.list());
-    //     return "kahvilaitteet";
-    // }
+    @GetMapping("/kahvilaitteet")
+    public String showProducts(Model model) {
+        model.addAttribute("tuotteet", tuoteService.list());
+        return "kahvilaitteet";
+    }
+    @GetMapping("/tuotesivu/{tuoteId}")
+    public String getTuotesivu(Model model, @PathVariable(value = "tuoteId") Long tuoteId) {
+        model.addAttribute("tuote", tuoteService.get(tuoteId));
+        return "/tuotesivu";
+    }
     @PostConstruct
     public void init() {
         tuoteService.add("gulbs", "uutta", 29, "kuva");
@@ -35,6 +38,7 @@ public class TuoteController {
         tuoteService.add(nimi, kuvaus, hinta, kuva);
         return "redirect:/kahvilaitteet";
     }
+   
     @PostMapping("/kahvilaitteet/{tuoteId}/osastot")
     public String assignOsasto(Long tuoteId, Long osastoId) {
         tuoteService.assign(tuoteId, osastoId);

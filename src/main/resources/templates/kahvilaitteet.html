@@ -9,7 +9,7 @@
         <h2>Täältä löydät kahvilaitteet</h2>
         <ul>
             <li th:each="tuote : ${tuotteet}">
-                <span th:text="${tuote.nimi}">Tuotteen nimi</span>
+                <a th:href="@{/tuotesivu/{tuoteId}(tuoteId=${tuote.id})}" th:text="${tuote.nimi}">Tuotteen nimi</a>
             </li>
         </ul>
         <h2>Lisää uusi tuote kantaan:</h2>
