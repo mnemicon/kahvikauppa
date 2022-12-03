@@ -13,7 +13,7 @@ public class OsastoController {
     private OsastoService osastoService;
 
     @GetMapping("/osastot")
-    public String showDepartments(Model model) {
+    public String listOsastot(Model model) {
         model.addAttribute("osastot", osastoService.list());
         return "redirect:/";
     }
@@ -22,8 +22,15 @@ public class OsastoController {
     public void init() {
         osastoService.add("Kahvilaitteet", 0);
         osastoService.add("Kulutustuotteet", 0);
+        osastoService.add("Espressolaitteet", 1);
+        osastoService.add("Suodatinkahvi", 1);
+        osastoService.add("Kahvimyllyt", 1);
+        osastoService.add("Suodattimet", 2);
+        osastoService.add("Kahvi", 2);
+        osastoService.add("Espressot", 7);
+        osastoService.add("Suodatinkahvit", 7);
     }
-    @PostMapping("/osastot")
+    @PostMapping("/")
     public String addDepartment(String nimi, Integer osastoIDP) {
         osastoService.add(nimi, osastoIDP);
         return "redirect:/";

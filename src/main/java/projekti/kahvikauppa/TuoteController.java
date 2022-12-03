@@ -1,6 +1,6 @@
 package projekti.kahvikauppa;
 
-import java.math.BigDecimal;
+// import java.math.BigDecimal;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,19 +28,19 @@ public class TuoteController {
     }
     @PostConstruct
     public void init() {
-        tuoteService.add("gulbs", "uutta", 29, "kuva");
-        tuoteService.add("asdfasdf", "vanha", 59, "kuva");
-        tuoteService.add("rrss", "hyvää", 55, "kuva");
+        tuoteService.add("gulbs", "uutta", 29, "kuva", (long) 1);
+        tuoteService.add("asdfasdf", "vanha", 59, "kuva", (long) 1);
+        tuoteService.add("rrss", "hyvää", 55, "kuva", (long) 1);
     }
 
     @PostMapping("/kahvilaitteet")
-    public String addProduct(String nimi, String kuvaus, int hinta, String kuva) {
-        tuoteService.add(nimi, kuvaus, hinta, kuva);
+    public String addProduct(String nimi, String kuvaus, int hinta, String kuva, Long id) {
+        tuoteService.add(nimi, kuvaus, hinta, kuva, id);
         return "redirect:/kahvilaitteet";
     }
    
     @PostMapping("/kahvilaitteet/{tuoteId}/osastot")
-    public String assignOsasto(Long tuoteId, Long osastoId) {
+    public String assignOsasto(@PathVariable Long tuoteId, @RequestParam Long osastoId) {
         tuoteService.assign(tuoteId, osastoId);
         return "redirect:/kahvilaitteet";
     }

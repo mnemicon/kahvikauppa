@@ -1,6 +1,6 @@
 package projekti.kahvikauppa;
 
-import java.math.BigDecimal;
+//import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +19,13 @@ public class TuoteService {
         return tuoteRepository.getById(tuoteId);
     }
 
-    public void add(String nimi, String kuvaus, int hinta, String kuva) {
+    public void add(String nimi, String kuvaus, int hinta, String kuva, Long id) {
         Tuote tuote = new Tuote();
         tuote.setNimi(nimi);;
         tuote.setKuvaus(kuvaus);
         tuote.setHinta(hinta);
         tuote.setKuva(kuva);
+        tuote.setOsasto(null);;
         tuoteRepository.save(tuote);
     }
     public void assign(Long tuoteId, Long osastoId) {
